@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corporación Red Neural - Soluciones en Software, Neuromarketing y Computación Cuántica</title>
+    <meta name="description" content="Corporación líder en desarrollo tecnológico con soluciones integradas de software personalizado, neuromarketing científico y computación cuántica aplicada.">
+    <meta name="keywords" content="desarrollo de software, neuromarketing, computación cuántica, inteligencia artificial, tecnología avanzada">
+    <meta name="author" content="Corporación Red Neural">
+    <link rel="icon" href="red.jpg" type="image/jpeg">
+    
+    <!-- Preload de fuentes -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap"></noscript>
+    
+    <style>
+    :root {
+        --blue-dark: #001a33;
+        --blue-medium: #0066cc;
+        --blue-light: #3399ff;
+        --emerald-dark: #00573D;
+        --emerald-medium: #008060;
+        --emerald-light: #00B388;
+        --teal-dark: #004D4D;
+        --teal-light: #008080;
+        --black: #1a1a1a;
+        --white: #f8f9fa;
+        --gray: #5a5a5a;
+        --silver: #e9ecef;
+        --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        --font-alt: 'Montserrat', var(--font-main);
+        --section-padding: 6rem 0;
+        --card-padding: 2.5rem;
+        --border-radius: 16px;
+        --box-shadow: 0 12px 24px -8px rgba(0,0,0,0.15);
+        --box-shadow-hover: 0 20px 40px -10px rgba(0,0,0,0.2);
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: var(--font-main);
+        color: var(--black);
+        background-color: var(--white);
+        line-height: 1.8;
+        font-size: 1.1rem;
+        overflow-x: hidden;
+        position: relative;
+    }
+
+    /* Mejoras de accesibilidad */
+    a:focus, button:focus {
+        outline: 3px solid var(--emerald-medium);
+        outline-offset: 3px;
+    }
+
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+    }
+
+    .stars {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+        will-change: transform;
+    }
+
+    .star {
+        position: absolute;
+        background-color: rgba(255,255,255,0.8);
+        border-radius: 50%;
+        animation: twinkle var(--duration) infinite ease-in-out;
+        opacity: var(--opacity);
+        will-change: transform, opacity;
+    }
+
+    @keyframes twinkle {
+        0%, 100% { opacity: 0.2; }
+        50% { opacity: 1; }
+    }
+
+    .main-content {
+        background-color: var(--white);
+        position: relative;
+        z-index: 1;
+        box-shadow: 0 0 50px rgba(0,0,0,0.3);
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    header {
+        background: linear-gradient(145deg, var(--blue-dark), var(--blue-medium));
+        color: var(--white);
+        padding: var(--section-padding);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    header::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+        animation: rotate 20s linear infinite;
+        z-index: 1;
+    }
+
+    .header-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .logo-container:hover {
+        transform: scale(1.03);
+    }
+
+    .logo-img {
+        height: 120px;
+        width: 120px;
+        margin-right: 25px;
+        filter: drop-shadow(0 6px 12px rgba(0,0,0,0.25));
+        transition: all 0.4s ease;
+        animation: pulse 3s infinite;
+        object-fit: contain;
+        alt: "Logo de Red Neural";
+    }
+
+    .logo-img:hover {
+        filter: drop-shadow(0 8px 16px rgba(0,0,0,0.3));
+    }
+
+    .logo-text {
+        font-family: var(--font-alt);
+        font-size: 4.2rem;
+        font-weight: 800;
+        display: inline-block;
+        text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        background: linear-gradient(to right, var(--white), var(--silver));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -1px;
+    }
+
+    .logo-text span {
+        color: var(--emerald-light);
+        -webkit-text-fill-color: var(--emerald-light);
+    }
+
+    .subtitle {
+        font-size: 1.4rem;
+        max-width: 800px;
+        margin: 0 auto;
+        color: rgba(255,255,255,0.95);
+        font-weight: 400;
+        line-height: 1.9;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        margin-bottom: 3rem;
+    }
+
+    .header-cta {
+        display: inline-block;
+        padding: 1.2rem 3rem;
+        background: linear-gradient(145deg, var(--emerald-medium), var(--emerald-light));
+        color: var(--white);
+        border-radius: 50px;
+        font-weight: 700;
+        text-decoration: none;
+        font-size: 1.2rem;
+        margin-top: 2rem;
+        box-shadow: var(--box-shadow);
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        border: none;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+        animation: pulse 2.5s infinite;
+    }
+
+    .header-cta:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--box-shadow-hover);
+    }
+
+    .header-cta::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(145deg, var(--emerald-light), var(--emerald-medium));
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        z-index: -1;
+    }
+
+    .header-cta:hover::before {
+        opacity: 1;
+    }
+
+    .companies {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 3rem;
+        margin: -5rem auto 0;
+        padding: 0 2rem;
+        max-width: 1400px;
+        position: relative;
+        z-index: 3;
+    }
+
+    .company-card {
+        background: var(--white);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--box-shadow);
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        border: 1px solid rgba(0,0,0,0.05);
+        position: relative;
+        animation: fadeIn 0.8s ease forwards;
+        opacity: 0;
+        --x: 50%;
+        --y: 50%;
+    }
+
+    .company-card:hover {
+        transform: translateY(-15px);
+        box-shadow: var(--box-shadow-hover);
+    }
+
+    .company-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at var(--x) var(--y), rgba(0,180,136,0.1) 0%, transparent 20%);
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .company-card:hover::before {
+        opacity: 1;
+    }
+
+    .company-card:nth-child(1) { animation-delay: 0.1s; }
+    .company-card:nth-child(2) { animation-delay: 0.3s; }
+    .company-card:nth-child(3) { animation-delay: 0.5s; }
+
+    .rp2 .company-header {
+        background: linear-gradient(145deg, var(--emerald-dark), var(--emerald-medium));
+        color: var(--white);
+    }
+
+    .rp3 .company-header {
+        background: linear-gradient(145deg, var(--blue-medium), var(--blue-light));
+        color: var(--white);
+    }
+
+    .sqg .company-header {
+        background: linear-gradient(145deg, var(--teal-dark), var(--teal-light));
+        color: var(--white);
+    }
+
+    .company-header {
+        padding: 3rem 2.5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .company-header::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.6s ease;
+    }
+
+    .company-card:hover .company-header::before {
+        opacity: 1;
+    }
+
+    .company-logo {
+        width: 110px;
+        height: 110px;
+        margin: 0 auto 1.5rem;
+        background-color: var(--white);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        border: 3px solid rgba(255,255,255,0.3);
+        overflow: hidden;
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+
+    .company-card:hover .company-logo {
+        transform: rotate(5deg) scale(1.1);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+    }
+
+    .company-logo img {
+        width: 70%;
+        height: 70%;
+        object-fit: contain;
+    }
+
+    .company-name {
+        font-family: var(--font-alt);
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+    }
+
+    .company-desc {
+        font-size: 1.1rem;
+        opacity: 0.95;
+        font-weight: 400;
+    }
+
+    .company-body {
+        padding: var(--card-padding);
+    }
+
+    .company-info {
+        margin-bottom: 2.5rem;
+    }
+
+    .company-info p {
+        margin-bottom: 1.5rem;
+        color: var(--black);
+        line-height: 1.9;
+    }
+
+    .company-info ul {
+        margin-left: 1.5rem;
+        margin-bottom: 2rem;
+        list-style-type: none;
+    }
+
+    .company-info li {
+        margin-bottom: 1rem;
+        position: relative;
+        padding-left: 2rem;
+        line-height: 1.7;
+    }
+
+    .company-info li::before {
+        content: '→';
+        color: var(--emerald-medium);
+        font-weight: 700;
+        position: absolute;
+        left: 0;
+    }
+
+    .company-link {
+        display: inline-block;
+        padding: 1.2rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 700;
+        text-decoration: none;
+        text-align: center;
+        width: 100%;
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        color: var(--white);
+        font-size: 1.1rem;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+    }
+
+    .rp2 .company-link {
+        background: linear-gradient(145deg, var(--emerald-dark), var(--emerald-medium));
+    }
+
+    .rp3 .company-link {
+        background: linear-gradient(145deg, var(--blue-medium), var(--blue-light));
+    }
+
+    .sqg .company-link {
+        background: linear-gradient(145deg, var(--teal-dark), var(--teal-light));
+    }
+
+    .company-link:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+    }
+
+    .company-link::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(255,255,255,0.3), transparent);
+        transform: translateX(-100%);
+        transition: transform 0.6s ease;
+        z-index: -1;
+    }
+
+    .company-link:hover::after {
+        transform: translateX(100%);
+    }
+
+    .social-proof {
+        background-color: var(--white);
+        padding: 6rem 0;
+        margin-top: 4rem;
+        position: relative;
+    }
+
+    .social-proof::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.03"><circle cx="50" cy="50" r="40" fill="none" stroke="%23006040" stroke-width="1"/></svg>');
+    }
+
+    .proof-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        position: relative;
+    }
+
+    .proof-title {
+        text-align: center;
+        font-family: var(--font-alt);
+        font-size: 2.5rem;
+        margin-bottom: 4rem;
+        color: var(--blue-dark);
+        position: relative;
+        display: inline-block;
+    }
+
+    .proof-title::after {
+        content: '';
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(to right, var(--emerald-medium), var(--blue-light));
+        border-radius: 2px;
+    }
+
+    .proof-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+    }
+
+    .proof-item {
+        background: var(--white);
+        border-radius: var(--border-radius);
+        padding: 3rem 2rem;
+        box-shadow: var(--box-shadow);
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        border: 1px solid rgba(0,0,0,0.05);
+        position: relative;
+        overflow: hidden;
+        animation: fadeIn 0.6s ease forwards;
+        opacity: 0;
+    }
+
+    .proof-item:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--box-shadow-hover);
+    }
+
+    .proof-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: linear-gradient(to right, var(--emerald-medium), var(--blue-light));
+    }
+
+    .proof-number {
+        font-family: var(--font-alt);
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: var(--emerald-medium);
+        margin-bottom: 1.5rem;
+        line-height: 1;
+        background: linear-gradient(to right, var(--emerald-medium), var(--blue-light));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .proof-text {
+        color: var(--gray);
+        font-size: 1.2rem;
+    }
+
+    footer {
+        background: linear-gradient(145deg, var(--blue-dark), #001a33);
+        color: var(--white);
+        padding: 8rem 0 4rem;
+        margin-top: 6rem;
+        position: relative;
+    }
+
+    footer::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" opacity="0.03"><circle cx="50" cy="50" r="40" fill="none" stroke="%23FFFFFF" stroke-width="0.5"/></svg>');
+    }
+
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 4rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .footer-logo-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+    }
+
+    .footer-logo-img {
+        height: 60px;
+        width: 60px;
+        margin-right: 20px;
+        filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+        alt: "Logo pequeño de Red Neural";
+    }
+
+    .footer-logo {
+        font-family: var(--font-alt);
+        font-size: 2.5rem;
+        font-weight: 700;
+        background: linear-gradient(to right, var(--white), var(--silver));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: -1px;
+    }
+
+    .footer-logo span {
+        color: var(--emerald-light);
+        -webkit-text-fill-color: var(--emerald-light);
+    }
+
+    .footer-tagline {
+        color: rgba(255,255,255,0.8);
+        line-height: 1.9;
+        margin-top: 1.5rem;
+        font-size: 1.1rem;
+    }
+
+    .footer-column h3 {
+        font-family: var(--font-alt);
+        margin-bottom: 2rem;
+        position: relative;
+        color: var(--emerald-light);
+        font-size: 1.4rem;
+        padding-bottom: 1rem;
+        letter-spacing: -0.5px;
+    }
+
+    .footer-column h3::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: linear-gradient(to right, var(--emerald-medium), var(--emerald-light));
+        border-radius: 3px;
+    }
+
+    .footer-links {
+        list-style: none;
+    }
+
+    .footer-links li {
+        margin-bottom: 1.2rem;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+
+    .footer-links li:hover {
+        transform: translateX(8px);
+    }
+
+    .footer-links a {
+        color: rgba(255,255,255,0.8);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        display: block;
+        padding: 0.4rem 0;
+    }
+
+    .footer-links a:hover {
+        color: var(--emerald-light);
+    }
+
+    .footer-links li::before {
+        content: '→';
+        position: absolute;
+        left: -25px;
+        opacity: 0;
+        color: var(--emerald-light);
+        transition: all 0.3s ease;
+    }
+
+    .footer-links li:hover::before {
+        opacity: 1;
+        left: -18px;
+    }
+
+    .copyright {
+        grid-column: 1/-1;
+        text-align: center;
+        margin-top: 6rem;
+        padding-top: 3rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        font-size: 0.95rem;
+        color: var(--silver);
+        line-height: 1.6;
+    }
+
+    .feedback-notification {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: linear-gradient(145deg, var(--emerald-medium), var(--emerald-dark));
+        color: #fff;
+        padding: 0;
+        border-radius: var(--border-radius);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        display: flex;
+        align-items: center;
+        z-index: 10000;
+        opacity: 0;
+        transform: translateY(100px);
+        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255,255,255,0.2);
+        max-width: 320px;
+        overflow: hidden;
+    }
+
+    .feedback-notification::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 80% 20%, rgba(255,255,255,0.15) 0%, transparent 40%);
+        pointer-events: none;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    @keyframes rotate {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 1200px) {
+        .logo-text { font-size: 3.5rem; }
+    }
+
+    @media (max-width: 992px) {
+        :root {
+            --section-padding: 5rem 0;
+        }
+        .logo-text { font-size: 3rem; }
+        .subtitle { font-size: 1.2rem; }
+        .companies {
+            grid-template-columns: 1fr;
+            margin-top: -3rem;
+        }
+        .company-card {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .logo-container {
+            flex-direction: column;
+        }
+        .logo-img {
+            margin-right: 0;
+            margin-bottom: 25px;
+            height: 100px;
+            width: 100px;
+        }
+        .logo-text { font-size: 2.8rem; }
+        .header-cta {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+        }
+        .company-logo {
+            width: 90px;
+            height: 90px;
+        }
+        .company-name { font-size: 1.8rem; }
+        .footer-logo-container {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        .footer-logo-img {
+            margin-bottom: 20px;
+            margin-right: 0;
+        }
+    }
+
+    @media (max-width: 576px) {
+        :root {
+            --section-padding: 4rem 0;
+            --card-padding: 2rem;
+        }
+        header { padding: 3.5rem 0; }
+        .logo-text { font-size: 2.4rem; }
+        .subtitle {
+            font-size: 1.1rem;
+            padding: 0 1rem;
+        }
+        .company-body, .company-header { padding: 2rem; }
+        .footer-content {
+            grid-template-columns: 1fr;
+            gap: 3rem;
+        }
+        .footer-column { margin-bottom: 2rem; }
+        .proof-item { padding: 2.5rem 1.5rem; }
+        .proof-number { font-size: 3rem; }
+    }
+
+    /* Optimización de animaciones para dispositivos móviles */
+    @media (prefers-reduced-motion: reduce) {
+        * {
+            animation-duration: 0.01ms !important;
+            animation-iteration-count: 1 !important;
+            transition-duration: 0.01ms !important;
+            scroll-behavior: auto !important;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="stars" id="stars-container" aria-hidden="true">
+        <!-- Estrellas generadas dinámicamente por JavaScript -->
+    </div>
+    
+    <div class="main-content">
+        <header>
+            <div class="header-content">
+                <div class="logo-container">
+                    <img src="red.jpg" alt="Logo de Red Neural" class="logo-img">
+                    <h1 class="logo-text">RED<span>NEURAL</span></h1>
+                </div>
+                <p class="subtitle">Transformamos ideas en realidades tecnológicas mediante un ecosistema integrado de soluciones avanzadas en desarrollo de software, neuromarketing y computación cuántica.</p>
+                <a href="#contacto" class="header-cta" id="main-cta">Habla con un experto</a>
+            </div>
+        </header>
+        
+        <div class="container">
+            <div class="companies">
+                <div class="company-card rp2" style="--x: 341px; --y: 853.453125px;">
+                    <div class="company-header">
+                        <div class="company-logo">
+                            <img src="rp2.jpg" alt="Logo de RP2 Desarrollo de Software">
+                        </div>
+                        <h2 class="company-name">RP2 Desarrollo</h2>
+                        <p class="company-desc">Innovación tecnológica a medida</p>
+                    </div>
+                    <div class="company-body">
+                        <div class="company-info">
+                            <p>Líderes en desarrollo de software personalizado que combina inteligencia artificial, aprendizaje automático y las últimas tecnologías para impulsar tu negocio.</p>
+                            <p><strong>Por qué elegirnos:</strong></p>
+                            <ul>
+                                <li><strong>Experiencia comprobada:</strong> Más de 150 proyectos exitosos</li>
+                                <li><strong>Tecnología de punta:</strong> Soluciones con IA y blockchain</li>
+                                <li><strong>Enfoque personalizado:</strong> Cada solución es única</li>
+                                <li><strong>Soporte 24/7:</strong> Estamos siempre disponibles</li>
+                            </ul>
+                        </div>
+                        <button class="company-link" id="rp2-button">Solicitar demostración</button>
+                    </div>
+                </div>
+                
+                <div class="company-card rp3" style="--x: 199.84375px; --y: 43.421875px;">
+                    <div class="company-header">
+                        <div class="company-logo">
+                            <img src="rp3.jpg" alt="Logo de RP3 Neuromarketing">
+                        </div>
+                        <h2 class="company-name">RP3 Neuromarketing</h2>
+                        <p class="company-desc">La ciencia detrás de tus ventas</p>
+                    </div>
+                    <div class="company-body">
+                        <div class="company-info">
+                            <p>Revolucionamos el marketing mediante neurociencia aplicada, eye-tracking y machine learning para entender lo que realmente despierta el interés de tus clientes.</p>
+                            <p><strong>Resultados medibles:</strong></p>
+                            <ul>
+                                <li><strong>+45%</strong> en tasa de conversión promedio</li>
+                                <li><strong>+60%</strong> en retención de atención</li>
+                                <li><strong>+35%</strong> en recall de marca</li>
+                                <li><strong>+50%</strong> en engagement emocional</li>
+                            </ul>
+                        </div>
+                        <button class="company-link" id="rp3-button">Analizar mi marca</button>
+                    </div>
+                </div>
+                
+                <div class="company-card sqg" style="--x: 343px; --y: 278.890625px;">
+                    <div class="company-header">
+                        <div class="company-logo">
+                            <img src="scg.jpg" alt="Logo de SCG Soluciones Cuánticas">
+                        </div>
+                        <h2 class="company-name">SCG Soluciones</h2>
+                        <p class="company-desc">El futuro es cuántico</p>
+                    </div>
+                    <div class="company-body">
+                        <div class="company-info">
+                            <p>Pioneros en aplicaciones prácticas de computación cuántica para resolver problemas complejos en finanzas, logística, farmacéutica y más.</p>
+                            <p><strong>Ventajas competitivas:</strong></p>
+                            <ul>
+                                <li>Algoritmos cuánticos patentados</li>
+                                <li>Equipo de científicos multidisciplinarios</li>
+                                <li>Laboratorios de última generación</li>
+                                <li>Resultados en semanas, no años</li>
+                            </ul>
+                            <p><strong>Casos de éxito:</strong> Optimización de portafolios financieros con +30% de rendimiento, reducción de costos logísticos en 22%.</p>
+                        </div>
+                        <button class="company-link" id="sqg-button">Explorar posibilidades</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="social-proof">
+            <div class="proof-container">
+                <h2 class="proof-title">En números</h2>
+                <div class="proof-grid">
+                    <div class="proof-item">
+                        <div class="proof-number">150+</div>
+                        <div class="proof-text">Proyectos tecnológicos completados</div>
+                    </div>
+                    <div class="proof-item">
+                        <div class="proof-number">98%</div>
+                        <div class="proof-text">Clientes satisfechos</div>
+                    </div>
+                    <div class="proof-item">
+                        <div class="proof-number">40+</div>
+                        <div class="proof-text">Países con nuestra tecnología</div>
+                    </div>
+                    <div class="proof-item">
+                        <div class="proof-number">12</div>
+                        <div class="proof-text">Premios internacionales</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer id="contacto">
+        <div class="footer-content">
+            <div class="footer-column">
+                <div class="footer-logo-container">
+                    <img src="red.jpg" alt="Logo pequeño de Red Neural" class="footer-logo-img">
+                    <div class="footer-logo"><span></span></div>
+                </div>
+                <p class="footer-tagline">Integrando la excelencia tecnológica con la comprensión humana para crear soluciones que realmente importan.</p>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Nuestras empresas</h3>
+                <ul class="footer-links">
+                    <li><a href="#">RP2 Desarrollo de Software</a></li>
+                    <li><a href="#">RP3 Neuromarketing Científico</a></li>
+                    <li><a href="#">SCG Soluciones Cuánticas</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contacto</h3>
+                <ul class="footer-links">
+                    <li><a href="tel:+584127301566">+584127301566</a></li>
+                    <li><a href="mailto:CORPORACIONREDNEURAL@GMAIL.COM">Corporacionredneural@gmail.com</a></li>
+                    <li><a href="#">Oportunidades laborales</a></li>
+                    <li><a href="#">Soporte técnico</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Recursos</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Blog tecnológico</a></li>
+                    <li><a href="#">Webinars</a></li>
+                    <li><a href="#">Documentación</a></li>
+                    <li><a href="#">Centro de ayuda</a></li>
+                </ul>
+            </div>
+            
+            <div class="copyright">
+                © 2025 Corporación Red Neural. Todos los derechos reservados.<br>
+                Innovando el futuro, hoy.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    // Optimización del rendimiento
+    document.addEventListener('DOMContentLoaded', function() {
+        // Carga diferida de estrellas
+        requestIdleCallback(createStars);
+        
+        // Efecto de luz en tarjetas
+        initCardLightEffect();
+        
+        // Configuración de botones
+        setupButtons();
+        
+        // Animaciones con IntersectionObserver
+        setupAnimations();
+    });
+
+    function createStars() {
+        const container = document.getElementById('stars-container');
+        const starCount = 150;
+        
+        // Fragmento para mejor rendimiento
+        const fragment = document.createDocumentFragment();
+        
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            
+            const size = 2 * Math.random() + 1;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.left = `${100 * Math.random()}%`;
+            star.style.top = `${100 * Math.random()}%`;
+            star.style.setProperty('--opacity', 0.5 * Math.random() + 0.1);
+            star.style.setProperty('--duration', `${3 * Math.random() + 2}s`);
+            
+            fragment.appendChild(star);
+        }
+        
+        container.appendChild(fragment);
+    }
+
+    function initCardLightEffect() {
+        document.querySelectorAll('.company-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                
+                card.style.setProperty('--x', `${x}px`);
+                card.style.setProperty('--y', `${y}px`);
+            });
+        });
+    }
+
+   
+
+    function showBeautifulMessage(buttonId) {
+        let messageConfig = {
+            title: "¡Genial decisión!",
+            content: "Estamos conectándote con uno de nuestros expertos en tecnología para brindarte la mejor asesoría personalizada.",
+            icon: "👨‍💻"
+        };
+        
+        // Personalización por tipo de botón
+        switch(buttonId) {
+            case "rp2-button":
+                messageConfig = {
+                    title: "¡Desarrollo a tu medida!",
+                    content: "Un experto en software avanzado te contactará para entender tus necesidades y proponer la mejor solución tecnológica.",
+                    icon: "💻"
+                };
+                break;
+            case "rp3-button":
+                messageConfig = {
+                    title: "¡Neuromarketing inteligente!",
+                    content: "Nuestro especialista en neurociencia aplicada te guiará para entender mejor a tus clientes y aumentar tus ventas.",
+                    icon: "🧠"
+                };
+                break;
+            case "sqg-button":
+                messageConfig = {
+                    title: "¡Soluciones cuánticas!",
+                    content: "Un científico especializado en computación cuántica te explicará cómo podemos resolver tus problemas más complejos.",
+                    icon: "⚛️"
+                };
+                break;
+        }
+        
+        const notification = document.createElement('div');
+        notification.className = 'feedback-notification';
+        notification.setAttribute('aria-live', 'polite');
+        notification.innerHTML = `
+            <div style="text-align:center;padding:1rem;">
+                <div style="font-size:2rem;margin-bottom:1rem;">${messageConfig.icon}</div>
+                <h3 style="margin-bottom:0.5rem;color:var(--white);font-family:var(--font-alt)">${messageConfig.title}</h3>
+                <p style="margin-bottom:1.5rem;color:rgba(255,255,255,0.9)">${messageConfig.content}</p>
+                <div style="display:flex;justify-content:center;align-items:center;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right:8px;">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                    <span>Redirigiendo a WhatsApp...</span>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(notification);
+        
+        // Animación de entrada
+        setTimeout(() => {
+            notification.style.opacity = "1";
+            notification.style.transform = "translateY(0)";
+        }, 10);
+        
+        // Redirección después de mostrar el mensaje
+        setTimeout(() => {
+            sendWhatsApp(buttonId);
+            
+            // Animación de salida
+            setTimeout(() => {
+                notification.style.opacity = "0";
+                notification.style.transform = "translateY(20px)";
+                setTimeout(() => notification.remove(), 300);
+            }, 1500);
+        }, 3000);
+    }
+
+  
+    function setupButtons() {
+        document.querySelectorAll('.company-link, .header-cta').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (this.tagName === 'A') {
+                    e.preventDefault();
+                }
+                showBeautifulMessage(this.id || "main-cta");
+            });
+        });
+    }
+
+    function setupAnimations() {
+        const animateElements = () => {
+            document.querySelectorAll('.company-card, .proof-item, footer').forEach((el, index) => {
+                setTimeout(() => {
+                    el.style.animation = 'fadeIn 0.6s ease forwards';
+                    el.style.opacity = '1';
+                }, 100 * index);
+            });
+        };
+        
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateElements();
+                        this.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            observer.observe(document.querySelector('.companies'));
+        } else {
+            // Fallback para navegadores sin IntersectionObserver
+            animateElements();
+        }
+    }
+    // Crear estrellas dinámicas
+function createStars() {
+  const container = document.getElementById('stars-container');
+  const starCount = 150;
+  
+  for (let i = 0; i < starCount; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    
+    // Tamaño aleatorio entre 1px y 3px
+    const size = Math.random() * 2 + 1;
+    star.style.width = `${size}px`;
+    star.style.height = `${size}px`;
+    
+    // Posición aleatoria
+    star.style.left = `${Math.random() * 100}%`;
+    star.style.top = `${Math.random() * 100}%`;
+    
+    // Opacidad aleatoria
+    star.style.setProperty('--opacity', Math.random() * 0.5 + 0.1);
+    
+    // Duración de animación aleatoria
+    star.style.setProperty('--duration', `${Math.random() * 3 + 2}s`);
+    
+    container.appendChild(star);
+  }
+}
+
+// Efecto de luz al mover el mouse en las tarjetas
+function initCardLightEffect() {
+  const cards = document.querySelectorAll('.company-card');
+  
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      
+      card.style.setProperty('--x', `${x}px`);
+      card.style.setProperty('--y', `${y}px`);
+    });
+  });
+}
+
+const whatsappNumber = "+584127301566";
+const buttonMessages = {
+  "rp2-button": "¡Hola! Estoy impresionado con los proyectos de RP2 y necesito una solución tecnológica avanzada para mi empresa. ¿Podrían ayudarme?",
+  "rp3-button": "Buen día, quiero que mi marca genere más conexión emocional con los clientes. ¿Cómo puede el neuromarketing de RP3 ayudarme a lograrlo?",
+  "sqg-button": "Saludos, tengo un problema complejo que parece no tener solución. ¿Podría la computación cuántica de SCG ser la respuesta? Necesito más información."
+};
+
+function sendWhatsApp(buttonId) {
+  const message = encodeURIComponent(buttonMessages[buttonId]);
+  trackConversion(buttonId);
+  window.open(`https://wa.me/${whatsappNumber}?text=${message}`, "_blank");
+  showFeedbackNotification();
+}
+
+function trackConversion(buttonId) {
+  console.log(`Conversion tracked for ${buttonId}`);
+  const conversions = JSON.parse(localStorage.getItem("conversions") || "{}");
+  conversions[buttonId] = (conversions[buttonId] || 0) + 1;
+  localStorage.setItem("conversions", JSON.stringify(conversions));
+}
+
+function showFeedbackNotification() {
+  const notification = document.createElement("div");
+  notification.className = "feedback-notification";
+  notification.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+      <polyline points="22 4 12 14.01 9 11.01"></polyline>
+    </svg>
+    Redirigiendo a WhatsApp...
+  `;
+  document.body.appendChild(notification);
+  
+  setTimeout(() => {
+    notification.style.opacity = "1";
+    notification.style.transform = "translateY(0)";
+  }, 10);
+  
+  setTimeout(() => {
+    notification.style.opacity = "0";
+    notification.style.transform = "translateY(20px)";
+    setTimeout(() => notification.remove(), 300);
+  }, 3000);
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Crear estrellas
+  createStars();
+  
+  // Inicializar efecto de luz en tarjetas
+  initCardLightEffect();
+  
+  // Event listeners para botones
+  document.querySelectorAll(".company-link, .header-cta").forEach(button => {
+    button.addEventListener("click", function(e) {
+      if (this.tagName === "A") e.preventDefault();
+      this.id ? sendWhatsApp(this.id) : sendWhatsApp("general-contact");
+    });
+  });
+
+  // Animación de aparición suave
+  const animateElements = () => {
+    document.querySelectorAll(".company-card, .proof-item, footer").forEach((el, i) => {
+      setTimeout(() => {
+        el.style.animation = "fadeIn 0.6s ease forwards";
+        el.style.opacity = "1";
+      }, 100 * i);
+    });
+  };
+
+  // Usar Intersection Observer si está disponible
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateElements();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    observer.observe(document.querySelector(".companies"));
+  } else {
+    animateElements();
+  }
+});
+</script>
+</body>
+</html>
